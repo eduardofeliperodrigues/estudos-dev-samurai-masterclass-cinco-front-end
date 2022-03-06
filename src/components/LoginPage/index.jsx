@@ -1,16 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+
+import { AuthContext } from "../../contexts/auth";
 
 import "./styles.css"
 
 const LoginPage = () => {
 
+    const { login } = useContext( AuthContext )
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const handleLogin = () => {
-        console.log('Email', email);
-        console.log('Senha', password)
-        console.log("Entrou")
+    const handleLogin = async (email, password) => {
+        await login(email, password)
     }
 
     return (
@@ -40,7 +42,7 @@ const LoginPage = () => {
                 </div>
 
                 <div className="actions">
-                    <button onClick={handleLogin}>Entrar</button>
+                    <button onClick={ () => handleLogin(email, password) }>Entrar</button>
                 </div>
             </div>
         </div>

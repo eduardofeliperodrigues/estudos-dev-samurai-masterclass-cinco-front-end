@@ -26,3 +26,8 @@
   text-align: right;
   margin-top: 1rem;
 }
+
+#login .title {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
